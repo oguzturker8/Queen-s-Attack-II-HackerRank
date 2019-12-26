@@ -126,10 +126,10 @@ Since there is only one square, and the queen is on it, the queen can move 0 squ
 - del | Total deleted cells number which is blocked by obstacles.
 - mid | Middle value of n x n matrix.
 - rank | Rank describes the obstacles' distance to mid.
-- xEyB contains the obstacle's y-axis. Obstacle's y-axis is greater than Queen's one when both x-axis are same.
-- xEyK contains the obstacle's y-axis. Obstacle's y-axis is less than Queen's one when both x-axis are same.
-- xKyE contains the obstacle's x-axis. Obstacle's x-axis is less than Queen's one when both y-axis are same.
-- xByE contains the obstacle's x-axis. Obstacle's x-axis is greater than Queen's one when both y-axis are same.
+- xEyB contains the obstacle's y-axis. Obstacle's y-axis is greater than Queen's one when both x-axises are same.
+- xEyK contains the obstacle's y-axis. Obstacle's y-axis is less than Queen's one when both x-axises are same.
+- xKyE contains the obstacle's x-axis. Obstacle's x-axis is less than Queen's one when both y-axises are same.
+- xByE contains the obstacle's x-axis. Obstacle's x-axis is greater than Queen's one when both y-axises are same.
 - xKyKx contains the bottom-left obstacle's x-axis.
 - xKyKy contains the bottom-left obstacle's y-axis.
 - xKyBx contains the top-left obstacle's x-axis.
