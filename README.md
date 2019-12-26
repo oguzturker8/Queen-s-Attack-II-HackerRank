@@ -191,7 +191,7 @@ Since there is only one square, and the queen is on it, the queen can move 0 squ
   });
 ```
 
-> This code calculates total deleted cells.
+> This code calculates total number of deleted cells.
 ```javascript
   obstacles.forEach(obs => {
     // obs[1]=x, obs[0]=y;
