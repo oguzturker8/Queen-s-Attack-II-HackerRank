@@ -141,6 +141,7 @@ Since there is only one square, and the queen is on it, the queen can move 0 squ
 
 ## Algorithm Explanation
 
+> This code finds the maximum available cells using matrix dimension and Queen's location. Doesn't count any of obstacles.
 ```javascript
   if (n % 2 === 0) {
     mid = (n + 1) / 2;
@@ -155,42 +156,8 @@ Since there is only one square, and the queen is on it, the queen can move 0 squ
     total = (n - 1) * 2 - rank * 2 + (n - 1) * 2;
   }
 ```
-> This code finds the maximum available cells using matrix dimension and Queen's location. Doesn't count any of obstacles.
 
-```javascript
-  obstacles.forEach(obs => {
-    // obs[1]=x, obs[0]=y;
-    if (obs[1] === x && obs[0] > y) xEyB = obs[0] < xEyB ? obs[0] : xEyB;
-    else if (obs[1] === x && obs[0] < y) xEyK = obs[0] > xEyK ? obs[0] : xEyK;
-    else if (obs[0] === y && obs[1] < x) xKyE = obs[1] > xKyE ? obs[1] : xKyE;
-    else if (obs[0] === y && obs[1] > x) xByE = obs[1] < xByE ? obs[1] : xByE;
-    else if (Math.abs(obs[0] - y) === Math.abs(obs[1] - x)) {
-      if (obs[1] < x && obs[0] < y) {
-        if (obs[1] > xKyKx && obs[0] > xKyKy) {
-          xKyKx = obs[1];
-          xKyKy = obs[0];
-        }
-      } else if (obs[1] < x && obs[0] > y) {
-        if (obs[1] > xKyBx && obs[0] < xKyBy) {
-          xKyBx = obs[1];
-          xKyBy = obs[0];
-        }
-      } else if (obs[1] > x && obs[0] < y) {
-        if (obs[1] < xByKx && obs[0] > xByKy) {
-          xByKx = obs[1];
-          xByKy = obs[0];
-        }
-      } else if (obs[1] > x && obs[0] > y) {
-        if (obs[1] < xByBx && obs[0] < xByBy) {
-          xByBx = obs[1];
-          xByBy = obs[0];
-        }
-      }
-    }
-  });
-```
 > This code filters the obstacles array to find the closest obstacles to Queen.
-
 ```javascript
   obstacles.forEach(obs => {
     // obs[1]=x, obs[0]=y;
@@ -223,4 +190,38 @@ Since there is only one square, and the queen is on it, the queen can move 0 squ
     }
   });
 ```
+
 > This code calculates total deleted cells.
+```javascript
+  obstacles.forEach(obs => {
+    // obs[1]=x, obs[0]=y;
+    if (obs[1] === x && obs[0] > y) xEyB = obs[0] < xEyB ? obs[0] : xEyB;
+    else if (obs[1] === x && obs[0] < y) xEyK = obs[0] > xEyK ? obs[0] : xEyK;
+    else if (obs[0] === y && obs[1] < x) xKyE = obs[1] > xKyE ? obs[1] : xKyE;
+    else if (obs[0] === y && obs[1] > x) xByE = obs[1] < xByE ? obs[1] : xByE;
+    else if (Math.abs(obs[0] - y) === Math.abs(obs[1] - x)) {
+      if (obs[1] < x && obs[0] < y) {
+        if (obs[1] > xKyKx && obs[0] > xKyKy) {
+          xKyKx = obs[1];
+          xKyKy = obs[0];
+        }
+      } else if (obs[1] < x && obs[0] > y) {
+        if (obs[1] > xKyBx && obs[0] < xKyBy) {
+          xKyBx = obs[1];
+          xKyBy = obs[0];
+        }
+      } else if (obs[1] > x && obs[0] < y) {
+        if (obs[1] < xByKx && obs[0] > xByKy) {
+          xByKx = obs[1];
+          xByKy = obs[0];
+        }
+      } else if (obs[1] > x && obs[0] > y) {
+        if (obs[1] < xByBx && obs[0] < xByBy) {
+          xByBx = obs[1];
+          xByBy = obs[0];
+        }
+      }
+    }
+  });
+```
+
